@@ -8,29 +8,42 @@ require 'pubnub'
 
 class ChicoWatch
 
+  # Start subscribing to the dog channel
   def initialize
     pubnub = Pubnub.new(:subscribe_key => 'secret')
     pubnub.subscribe(:channel => :dog_channel,
                      :callback => lambda { |message| handle(message) })
   end
 
+  # Parse the message received from the video monitor
+  #  example of the format of the message: [[{"command":"couch"}],"13565581135598040"]
   def handle(message)
-    #  example of the format of the message: [[{"command":"couch"}],"13565581135598040"]
     json = message[0][0]
     if !json.blank?
       process(json['command'])
     end
   end
 
+  # Execute the command
   def process(command)
     puts "Received command #{command}"
+
     # TODO: play an mp3 based on the command
-    #       example: "Chico! Get off the couch!"
-    #       example: "Chico! No!"
+    case command
+    when 'couch'
+      # play "Chico! Get off the couch!.mp3"
+    when 'horse_playing'
+      # play "Chico! Stop It!.mp3"
+    else
+      # play "Chico! Bust It!.mp3"
+    end
   end
 
 end
 
+# How to run: ./chico.rb -d -P chico.pid -l chico.log
+# How to kill: ./chico.rb -k -P chico.pid
+# Help: ./chico.rb --help
 Dante.run('chico_watch') do |opt|
   ChicoWatch.new
 end
