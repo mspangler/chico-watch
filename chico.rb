@@ -37,7 +37,7 @@ class ChicoWatch
     end
   end
 
-  # Yell at Chico
+  # Play audio through connected speakers
   def play(audio)
     exec("afplay #{audio} &")
   end
