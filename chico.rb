@@ -20,21 +20,26 @@ class ChicoWatch
   def handle(message)
     json = message[0][0]
     if !json.blank?
-      play(json['command'])
+      process(json['command'])
     end
   end
 
-  # Yell the command at Chico
-  def play(command)
+  # Process the command
+  def process(command)
     puts "Received command #{command}"
 
     # Play an mp3 based on the command
     case command
     when 'couch'
-      # exec('afplay "Chico! Get off the couch!.mp3" &')
+      play "Chico! Get off the couch!.mp3"
     when 'horse_playing'
-      # exec('afplay "Chico! Stop It!.mp3" &')
+      play "Chico! Stop It!.mp3"
     end
+  end
+
+  # Yell at Chico
+  def play(audio)
+    exec("afplay #{audio} &")
   end
 
 end
