@@ -10,7 +10,7 @@ class ChicoWatch
 
   def initialize
     pubnub = Pubnub.new(:subscribe_key => 'secret')
-    pubnub.subscribe(:channel => :my_channel,
+    pubnub.subscribe(:channel => :dog_channel,
                      :callback => lambda { |message| handle(message) })
   end
 
