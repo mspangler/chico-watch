@@ -24,6 +24,9 @@ class ChicoWatch
 
   def process(command)
     puts "Received command #{command}"
+    # TODO: play an mp3 based on the command
+    #       example: "Chico! Get off the couch!"
+    #       example: "Chico! No!"
   end
 
 end
