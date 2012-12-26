@@ -1,4 +1,4 @@
 chico-watch
 ===========
 
-This program will speak audio commands to my misbehaving dog while I'm gone.
+This program will speak commands to my misbehaving dog while I'm gone.
