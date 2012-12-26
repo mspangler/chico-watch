@@ -16,7 +16,7 @@ class ChicoWatch
   end
 
   # Parse the message received from the video monitor
-  #  example of the format of the message: [[{"command":"couch"}],"13565581135598040"]
+  # message example: [[{"command":"couch"}],"13565581135598040"]
   def handle(message)
     json = message[0][0]
     if !json.blank?
@@ -28,14 +28,14 @@ class ChicoWatch
   def process(command)
     puts "Received command #{command}"
 
-    # TODO: play an mp3 based on the command
+    # Play an mp3 based on the command
     case command
     when 'couch'
-      # play "Chico! Get off the couch!.mp3"
+      # exec('afplay "Chico! Get off the couch!.mp3" &')
     when 'horse_playing'
-      # play "Chico! Stop It!.mp3"
+      # exec('afplay "Chico! Stop It!.mp3" &')
     else
-      # play "Chico! Bust It!.mp3"
+      # exec('afplay "Chico! Bust It!.mp3" &')
     end
   end
 
