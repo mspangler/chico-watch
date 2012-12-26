@@ -34,8 +34,6 @@ class ChicoWatch
       # exec('afplay "Chico! Get off the couch!.mp3" &')
     when 'horse_playing'
       # exec('afplay "Chico! Stop It!.mp3" &')
-    else
-      # exec('afplay "Chico! Bust It!.mp3" &')
     end
   end
 
