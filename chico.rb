@@ -20,12 +20,12 @@ class ChicoWatch
   def handle(message)
     json = message[0][0]
     if !json.blank?
-      process(json['command'])
+      play(json['command'])
     end
   end
 
-  # Execute the command
-  def process(command)
+  # Yell the command at Chico
+  def play(command)
     puts "Received command #{command}"
 
     # Play an mp3 based on the command
