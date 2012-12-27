@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require File.expand_path("../chico.rb", __FILE__)
+require File.expand_path('../chico.rb', __FILE__)
 
 require 'rubygems'
 require 'dante'
@@ -11,8 +11,7 @@ class ChicoWatch
   # Start subscribing to the dog channel
   def initialize
     pubnub = Pubnub.new(:subscribe_key => 'sub-c6a6acee-4672-11e0-af21-13b052347a9b')
-    pubnub.subscribe(:channel => :dog_channel,
-                     :callback => lambda { |message| parse(message) })
+    pubnub.subscribe(:channel => :dog_channel, :callback => lambda { |message| parse(message) })
   end
 
   # Parse the message received from the video monitor
