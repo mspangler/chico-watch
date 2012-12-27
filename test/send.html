@@ -1,0 +1,21 @@
+<html>
+<body>
+<div id=pubnub></div>
+<script src="http://cdn.pubnub.com/pubnub-3.4.min.js"></script>
+<script>(function(){
+
+    // INIT PubNub
+    var pubnub = PUBNUB.init({
+        publish_key   : 'pub-7d360977-a319-4be8-afc3-8fcfc3ab8b0e',
+        subscribe_key : 'sub-c6a6acee-4672-11e0-af21-13b052347a9b'
+    });
+
+    pubnub.publish({
+      channel : "dog_channel",
+      message : { "command" : "couch" }
+    });
+
+
+})();</script>
+</body>
+</html>

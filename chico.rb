@@ -19,9 +19,7 @@ class ChicoWatch
   # message example: [[{"command":"couch"}],"13565581135598040"]
   def handle(message)
     json = message[0][0]
-    if !json.blank?
-      process(json['command'])
-    end
+    process(json['command']) unless json.blank?
   end
 
   # Process the command
@@ -31,15 +29,15 @@ class ChicoWatch
     # Play an mp3 based on the command
     case command
     when 'couch'
-      play "test.mp3"
+      play "test"
     when 'horse_playing'
-      play "Chico! Stop It!.mp3"
+      play "Chico! Stop It!"
     end
   end
 
   # Play audio through connected speakers
   def play(audio)
-    IO.popen("afplay #{audio} &")
+    IO.popen("afplay #{audio}.mp3 &")
   end
 
 end
