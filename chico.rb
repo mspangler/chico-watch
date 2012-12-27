@@ -10,7 +10,7 @@ class ChicoWatch
 
   # Start subscribing to the dog channel
   def initialize
-    pubnub = Pubnub.new(:subscribe_key => 'secret')
+    pubnub = Pubnub.new(:subscribe_key => 'sub-c6a6acee-4672-11e0-af21-13b052347a9b')
     pubnub.subscribe(:channel => :dog_channel,
                      :callback => lambda { |message| handle(message) })
   end
@@ -31,7 +31,7 @@ class ChicoWatch
     # Play an mp3 based on the command
     case command
     when 'couch'
-      play "Chico! Get off the couch!.mp3"
+      play "test.mp3"
     when 'horse_playing'
       play "Chico! Stop It!.mp3"
     end
@@ -39,7 +39,7 @@ class ChicoWatch
 
   # Play audio through connected speakers
   def play(audio)
-    exec("afplay #{audio} &")
+    IO.popen("afplay #{audio} &")
   end
 
 end
