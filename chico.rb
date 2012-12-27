@@ -19,12 +19,12 @@ class ChicoWatch
   # message example: [[{"command":"couch"}],"13565581135598040"]
   def handle(message)
     json = message[0][0]
-    process(json['command']) unless json.blank?
+    process(json['command'], message[1]) unless json.blank?
   end
 
   # Process the command
-  def process(command)
-    puts "Received command #{command}"
+  def process(command, time_token)
+    puts "Received command #{command} at #{time_token}"
 
     # Play an mp3 based on the command
     case command
